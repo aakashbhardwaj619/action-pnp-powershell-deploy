@@ -1,0 +1,27 @@
+name: 'PnP PowerShell Deploy App'
+description: 'Deploy an app using PnP PowerShell'
+inputs:
+  SHAREPOINT_SITE_URL:
+    description: 'URL of the SharePoint Site'
+    required: true
+  ADMIN_USERNAME:
+    description: 'Username of the admin'
+    required: true
+  ADMIN_PASSWORD:
+    description: 'Password of the admin'
+    required: true
+  APP_FILE_PATH:
+    description: 'Relative path of the app in your repo'
+    required: true
+  OVERWRITE:
+    description: 'True or false. Set to overwrite the existing package file. Default is false'
+    required: false
+  SCOPE:
+    description: 'Scope of the app catalog: Tenant|Site. Default is Tenant'
+    required: false
+  SKIP_FEATURE_DEPLOYMENT:
+    description: 'True or false. If the app supports tenant-wide deployment, deploy it to the whole tenant. Default is false'
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
